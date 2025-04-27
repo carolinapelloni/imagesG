@@ -1,0 +1,327 @@
+
+#hero-text {
+  position: absolute;
+  top: 15%; /* Posiziona il testo al centro verticale */
+  left: 50%; /* Posiziona il testo al centro orizzontale */
+  transform: translate(-50%, -50%); /* Centra esattamente il testo */
+  text-align: center;
+  font-size: 2.1rem; /* Font grande */
+  color: #f6f6f6; /* Colore rosa chiaro */
+  font-weight: bold; /* Grassetto */
+  width: 90%; /* Larghezza del testo (lasciando un po' di spazio ai lati) */
+  z-index: 1; /* Metti sopra le mattonelle */
+  line-height: 0.9; /* Distanza tra le righe per migliorare la leggibilità */
+
+  /* Ombra più distante attorno al testo */
+  text-shadow:
+          4px 4px 8px rgba(0, 0, 0, 0.6),   /* Ombra più distante a destra e in basso */
+          -4px -4px 8px rgba(0, 0, 0, 0.6),  /* Ombra più distante a sinistra e in alto */
+          4px -4px 8px rgba(0, 0, 0, 0.6),   /* Ombra più distante a destra e in alto */
+          -4px 4px 8px rgba(0, 0, 0, 0.6);   /* Ombra più distante a sinistra e in basso */
+}
+
+
+/* Media Query per schermi con larghezza inferiore a 1024px */
+@media (max-width: 1024px) {
+  #hero-text {
+    top: 40%;
+    font-size: 1.5rem; /* Riduce la dimensione del font per schermi più piccoli */
+    padding-bottom: 15px; /* Aggiungi un po' di padding sotto il testo */
+  }
+
+  #tiles-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonne */
+    grid-template-rows: repeat(5, 1fr); /* 5 righe */
+  }
+}
+
+/* Media Query per schermi con larghezza inferiore a 400px */
+@media (max-width: 400px) {
+  #hero-text {
+    bottom: 40%; /* Sposta il testo più in alto */
+    transform: translate(-50%, -45%); /* Regola per centrarlo meglio */
+    font-size: 1.2rem; /* Riduce ulteriormente la dimensione del font */
+  }
+
+  #tiles-container {
+    bottom: 40%; /* Sposta le mattonelle più in alto rispetto alla posizione di default */
+    margin-top: 5px; /* Riduce il margine in cima */
+  }
+}
+
+/* Altri stili esistenti */
+#tiles-container {
+  position: absolute;
+  bottom: 0; /* Posiziona le mattonelle nella parte inferiore dello schermo */
+  left: 0;
+  width: 100%;
+  height: 45%; /* Occupa il 25% dello schermo */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colonne */
+  grid-template-rows: repeat(2, 1fr); /* 2 righe */
+  gap: 10px; /* Spaziatura tra le mattonelle */
+  padding: 10px; /* Spaziatura interna */
+  box-sizing: border-box;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(43, 73, 123, 0.8); /* rosso trasparente */
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  text-transform: capitalize;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+  #tiles-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonne per schermi più piccoli */
+    grid-template-rows: repeat(5, 1fr); /* 5 righe per schermi più piccoli */
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  #tiles-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 colonne per schermi medi */
+    grid-template-rows: repeat(4, 1fr); /* Numero di righe modificato */
+  }
+
+}
+
+/* Modifica l'altezza dell'immagine su schermi sotto 1024px */
+@media (max-width: 1024px) {
+  #hero-image-container {
+    height: auto; /* Rendi il contenitore flessibile per adattarsi al contenuto */
+  }
+
+  #hero-image {
+    height: 60vh; /* Imposta l'immagine per occupare il 60% dell'altezza della finestra */
+    width: 100%;  /* Assicurati che l'immagine occupi tutta la larghezza */
+    object-fit: cover; /* Mantiene il contenuto visibile senza deformare l'immagine */
+  }
+
+  /* Regola il contenitore delle mattonelle per adattarsi alla nuova altezza dell'immagine */
+  #tiles-container {
+    margin-top: 10px; /* Aggiungi un piccolo margine in cima per separare dalle mattonelle */
+  }
+}
+/* Media Query per schermi con larghezza inferiore a 400px */
+@media (max-width: 1000px) {
+  #hero-text {
+    top: 70%; /* Sposta il testo un po' più in alto */
+    transform: translate(-50%, -50%); /* Centra il testo più correttamente */
+    font-size: 1.2rem; /* Riduce ulteriormente la dimensione del font */
+  }
+
+  #tiles-container {
+    position: relative; /* Cambia la posizione da absolute a relative */
+    top: 70%; /* Aggiungi un po' di spazio sopra le mattonelle */
+    margin-top: 0; /* Rimuovi il margine sopra le mattonelle */
+    padding: 10px 0; /* Aggiungi un po' di padding sopra e sotto le mattonelle */
+  }
+}
+
+/* Regola di base per schermi più grandi (1024px e oltre), usa flex-direction column */
+.category-group {
+  display: flex;
+  flex-direction: column !important; /* Aggiungi !important per dare priorità a questa regola */
+  gap: 10px; /* Spaziatura tra i link */
+  margin: 5px 0;
+}
+
+/* Media Query per schermi più piccoli di 1024px */
+@media (max-width: 1024px) {
+  .category-group {
+    flex-direction: row !important; /* Dispone gli elementi in orizzontale (righe) per schermi più piccoli */
+    gap: 5px; /* Spaziatura tra i link */
+    padding: 0; /* Rimuove il padding */
+  }
+}
+
+/* Media Query per schermi ancora più piccoli di 400px */
+@media (max-width: 400px) {
+  .category-group {
+    flex-direction: row !important; /* Continua a disporre gli elementi in riga per schermi molto piccoli */
+    gap: 2px; /* Riduce ulteriormente lo spazio tra i link */
+    padding: 0; /* Mantiene il padding a 0 */
+  }
+}
+
+
+/* Per schermi con larghezza da 1024px a 1279px */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  /* Contenitore delle voci di navigazione personalizzato */
+  .custom-nav {
+    display: grid; /* Impostiamo la griglia */
+    padding: 0 !important; /* Azzeriamo il padding per il contenitore */
+    grid-template-columns: 30% 40% 30%; /* Colonna 1: 30%, colonna 2: 40%, colonna 3: 30% */
+    list-style-type: none; /* Rimuove i punti della lista */
+    font-size: 0.8rem !important; /* Riduce la dimensione del font per schermi da 1024px */
+    gap: 0.2rem !important; /* Aggiungi spazio tra le celle, se preferisci un gap generico tra righe e colonne */
+  }
+
+  /* Riduci il font per il testo specificato */
+  #customi-text {
+    font-size: 0.8rem !important; /* Riduce la dimensione del font per schermi da 1024px */
+    padding: 0 !important; /* Azzeriamo il padding sopra e sotto con !important */
+  }
+
+  /* Aggiungi un piccolo padding-bottom sotto ogni voce nella lista */
+  .custom-nav > li {
+    padding-top: 0 !important; /* Azzeriamo il padding-top per ogni voce */
+    padding-bottom: 0.2rem !important; /* Piccolo padding sotto ogni cella */
+    margin-top: 0 !important; /* Rimuove eventuali margini sopra */
+    margin-bottom: 0 !important; /* Rimuove eventuali margini sotto */
+  }
+
+
+  /* Modifica anche il padding per gli anchor */
+  .navbar-brand {
+    padding-top: 0 !important; /* Azzeriamo il padding-top con !important */
+    padding-bottom: 0 !important; /* Azzeriamo il padding-bottom con !important */
+    font-size: 0.8rem !important; /* Aggiungi !important anche per il font size */
+  }
+}
+
+
+
+/* Stile di base per desktop */
+.vendor-info {
+  text-align: left; /* Testo allineato a sinistra per schermi grandi */
+  padding-top: 5rem; /* Aggiunge spazio sopra il testo */
+}
+
+.vendor-icon {
+  width: 9cm; /* Dimensione predefinita per schermi grandi */
+  height: 9cm;
+  border-radius: 50%;
+}
+
+/* Stile per dispositivi mobili (schermi con larghezza max 768px) */
+@media screen and (max-width: 768px) {
+  .vendor-info {
+    text-align: center; /* Centra il testo su dispositivi mobili */
+    padding-top: 0; /* Rimuove il padding */
+  }
+
+  .vendor-icon {
+    width: 70%; /* L'immagine occupa il 70% della larghezza del contenitore */
+    height: auto; /* Mantiene il rapporto d'aspetto */
+    max-width: 250px; /* Dimensione massima per dispositivi mobili */
+    min-width: 180px; /* Dimensione minima per evitare che diventi troppo piccola */
+  }
+}
+
+/* Stile per schermi ultra-piccoli (es. larghezza max 400px) */
+@media screen and (max-width: 400px) {
+  .vendor-icon {
+    width: 80%; /* L'immagine occupa una percentuale maggiore dello schermo */
+    height: auto; /* Mantiene il rapporto d'aspetto */
+    max-width: 200px; /* Limita la dimensione massima su schermi molto piccoli */
+    min-width: 150px; /* Dimensione minima per evitare che diventi troppo piccola */
+  }
+}
+
+.vendor-icon2 {
+  width: 100px; /* Imposta una dimensione fissa più piccola */
+  height: 100px; /* Deve essere uguale a width per mantenere la forma quadrata */
+  border-radius: 50%; /* Rende l'immagine rotonda */
+  object-fit: cover; /* Garantisce che l'immagine si adatti al contenitore senza deformarsi */
+  display: block; /* Evita eventuali problemi di margini con immagini inline */
+}
+
+
+.responsive-img {
+  width: 100%;           /* Fai in modo che l'immagine riempia la larghezza della colonna */
+  height: auto;          /* Mantieni le proporzioni dell'immagine */
+  object-fit: contain;   /* Mantieni l'immagine intera dentro il contenitore */
+}
+
+@media screen and (min-width: 768px) {
+  h2.boxCompra {
+    font-size: 24px; /* Dimensione del testo */
+    padding-bottom: 2rem; /* Spaziatura sotto */
+    margin-bottom: 2rem; /* Spaziatura inferiore */
+    color: #333; /* Colore del testo */
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Altezza in rapporto 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.auto-expand2 {
+  min-height: 150px;  /* Altezza iniziale del campo di testo */
+  resize: vertical;   /* Permette solo il ridimensionamento verticale */
+}
+
+@media (max-width: 1023px) {
+  .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+@media (width: 1024px) {
+  .dropdown-menu {
+    display: none; /* Nasconde il menu a tendina di default su mobile */
+  }
+
+
+  .dropdown-menu.show {
+    display: block;
+  }
+}
+@media (min-width: 1200px) {
+.flex86 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 16.66%; /* 100% / 6 colonne = 16.66% */
+  flex: 0 0 16.66%;
+  max-width: 16.66%; /* Imposta la larghezza massima della colonna al 16.66% */
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
